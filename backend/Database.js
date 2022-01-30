@@ -43,3 +43,12 @@ const insertIntoSportTable = () => {
 		);
 	});
 }
+
+//CREATE TEAM TABLE
+
+//INSERT INTO SPORT TABLE
+
+
+//Node Database.js
+//createTeamTable();
+//insertIntoTeamTable();
