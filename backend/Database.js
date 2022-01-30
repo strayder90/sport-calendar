@@ -30,3 +30,16 @@ const createSportTable = () => {
 		);
 	});
 };
+
+const insertIntoSportTable = () => {
+	connection.connect(err => {
+		if (err) throw err;
+		connection.query(
+			'INSERT INTO sport (id, name) VALUES (?, ?)', [null, 'Football'],
+			(err, result) => {
+				if (err) throw err;
+				console.log('Inserted into sport.');
+			}
+		);
+	});
+}
