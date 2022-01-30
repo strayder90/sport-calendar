@@ -12,12 +12,13 @@ app.get('/', (req, res) => {
 app.get('/sports', (req, res) => {
 	connection.connect(() => {
 		connection.query('SELECT * FROM sport', (err, rows) => {
+			res.header("Access-Control-Allow-Origin", "*");
 			res.status(200).json({ status_code: 200, status_message: 'Success!', data: rows });
 		});
 	});
 });
 
-app.listen(8080, err => {
+app.listen(5500, err => {
 	if (err) throw err;
 	console.log('Server is running...');
 });
