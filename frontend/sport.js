@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+const sportInput = document.querySelector('#sportName');
+const saveValueBtn = document.querySelector('#saveSport');
+
 axios.get('http://localhost:5500/sports').then(response => {
   const sports = response.data.data;
   
@@ -8,15 +11,18 @@ axios.get('http://localhost:5500/sports').then(response => {
     listMarkup += '<tr><td>' + sports[i].id + '</td><td>' + sports[i].name + '</td></tr>';
   }
   
-  const myList = document.getElementById("list");
+  const sportList = document.getElementById('sportList');
   const tableHeaders = '<tr><th>ID</th><th>Name</th></tr>'
-  myList.innerHTML = tableHeaders + listMarkup;
+  sportList.innerHTML = tableHeaders + listMarkup;
 });
 
-const createTeam = (teamName) => {
+
+const createSport = (name) => {
   axios.post('http://localhost:5500/sports', {
-    name: teamName, 
+    name: sportInput.value, 
   }).then(response => {
     console.log(response)
   });
-}
+};
+
+saveValueBtn.addEventListener('click', createSport);

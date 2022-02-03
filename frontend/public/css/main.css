@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+table {
+	table-layout: fixed;
+}
+
+#tableSport {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 40rem;
+}
+#tableTeam {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 50rem;
+}
+
+#sportList {
+	margin: 10px auto;
+	justify-content: center;
+	text-align: center;
+	width: 500px;
+}
+
+#teamList {
+	margin: auto;
+	justify-content: center;
+	text-align: center;
+	width: 700px;
+}
+
+#addSportBtn {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin:10px auto;
+}
+
+#addTeamBtn{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin:10px auto;
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
