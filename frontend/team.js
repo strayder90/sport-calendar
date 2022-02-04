@@ -10,7 +10,7 @@ axios.get('http://localhost:5500/teams').then(response => {
   
   let listMarkup = '';
   for (let i = 0; i < teams.length; i++) {
-    listMarkup += '<tr><td>' + teams[i].id + '</td><td>' + teams[i].team + '</td><td>' + teams[i].country + '</td><td>' + teams[i].acronym + '</td></tr>';
+    listMarkup += '<tr><td>' + teams[i].id + '</td><td>' + teams[i].name + '</td><td>' + teams[i].country + '</td><td>' + teams[i].acronym + '</td></tr>';
   };
   
   const teamList = document.getElementById("teamList");
@@ -18,11 +18,11 @@ axios.get('http://localhost:5500/teams').then(response => {
   teamList.innerHTML = tableHeaders + listMarkup;
 });
 
-const createTeam = (team, country, acronym) => {
+const createTeam = (name, country, acronym) => {
   axios.post('http://localhost:5500/teams', {
-      team:     teamName.value, 
-      country:  teamCountry.value,
-      acronym:  teamAcronym.value,
+      name: teamName.value, 
+      country: teamCountry.value,
+      acronym: teamAcronym.value,
   }).then(response => {
     console.log(response);
   });

@@ -39,9 +39,17 @@ export class Database {
 
 	getEventBySport() {}
 
-	createSport() {}
+	async createSport(sport) {
+		const connection = await this.getConnection();
 
-	createTeam() {}
+		await connection.query('INSERT INTO sport (id, name) VALUES (?, ?)', [null, sport]);
+	}
+
+	async createTeam(team) {
+		const connection = await this.getConnection();
+
+		await connection.query('INSERT INTO team (id, name, country, acronym) VALUES (?, ?, ?, ?)', [null, team.name, team.country, team.acronym]);
+	}
 
 	createEvent() {}
 }

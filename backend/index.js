@@ -18,12 +18,14 @@ app.get('/sports', async (_, res) => {
   }
 });
 
-app.post('/sports', (req) => {
-	connection.connect(() => {
-		connection.query('INSERT INTO sport (id, name) VALUES (?, ?)', [null, req.body.name], () => {
-			res.status(200).json({ status_code: 200, status_message: 'Success!'});
-		});
-	});
+app.post('/sports', async (req, res) => {
+	try {
+		const sport = req.body.name;
+		await database.createSport(sport);
+		res.status(200).json({ status_code: 200, status_message: 'Success!'});
+	} catch (error) {
+		console.error(`Could not create the sport: ${error.message}`);
+	}
 });
 
 app.get('/teams', async (_, res) => {
@@ -35,12 +37,14 @@ app.get('/teams', async (_, res) => {
   }
 });
 
-app.post('/teams', (req, res) => {
-	connection.connect(() => {
-		connection.query('INSERT INTO team (id, team, country, acronym) VALUES (?, ?, ?, ?)', [null, req.body.team, req.body.country, req.body.acronym], () => {
-			res.status(200).json({ status_code: 200, status_message: 'Success!'});
-		});
-	});
+app.post('/teams', async (req, res) => {
+	try {
+		const team = req.body;
+		await database.createTeam(team);
+		res.status(200).json({ status_code: 200, status_message: 'Success!'});
+	} catch (error) {
+		console.error(`Could not create the sport: ${error.message}`);
+	}
 });
 
 app.listen(5500, err => {

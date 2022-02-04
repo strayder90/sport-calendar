@@ -79,7 +79,7 @@ const createTeamTable = () => {
       throw error;
     }
 		connection.query(
-			'CREATE TABLE `team` (`id` INT NOT NULL AUTO_INCREMENT, `team` VARCHAR(45) NULL, `country` VARCHAR(45) NULL, `acronym` VARCHAR(45) NULL, PRIMARY KEY (`id`));',
+			'CREATE TABLE `team` (`id` INT NOT NULL AUTO_INCREMENT, `name` VARCHAR(45) NULL, `country` VARCHAR(45) NULL, `acronym` VARCHAR(45) NULL, PRIMARY KEY (`id`));',
 			error => {
 				if (error) {
           throw error;
@@ -96,7 +96,7 @@ const insertIntoTeamTable = () => {
       throw error;
     }
 		connection.query(
-			'INSERT INTO team (id, team, country, acronym) VALUES (?, ?, ?, ?)', [null, 'Real Madrid', 'Spain', 'RMD'],
+			'INSERT INTO team (id, name, country, acronym) VALUES (?, ?, ?, ?)', [null, 'Real Madrid', 'Spain', 'RMD'],
 			error => {
 				if (error) {
           throw error;
@@ -119,6 +119,23 @@ const deleteTeamTableData = () => {
           throw error;
         }
 				console.log('Deleted from team table.');
+			}
+		);
+	});
+}
+
+const dropTable = () => {
+	connection.connect(error => {
+		if (error) {
+      throw error;
+    }
+		connection.query(
+			'DROP TABLE team',
+			error => {
+				if (error) {
+          throw error;
+        }
+				console.log('Deleted sport table.');
 			}
 		);
 	});
