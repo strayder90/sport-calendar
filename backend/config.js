@@ -107,7 +107,6 @@ const createEventTable = () => {
 	});
 };
 
-
 const insertIntoTeamTable = () => {
 	connection.connect(error => {
 		if (error) {
@@ -141,7 +140,6 @@ const insertIntoEventTable = () => {
 		);
 	});
 }
-
 
 const deleteTeamTableData = () => {
 	connection.connect(error => {
@@ -185,4 +183,4 @@ console.log('Initializing database...')
 //insertIntoTeamTable();
 //createEventTable();
 //dropTable()
-insertIntoEventTable();
+//insertIntoEventTable();

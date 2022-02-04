@@ -50,13 +50,29 @@ export class Database {
 	async getEvents() {
 		const connection = await this.getConnection();
 
-		const [rows] = await connection.query('SELECT * FROM event');
+		const [rows] = await connection.query(`
+		SELECT
+			event.id AS event_id,
+			event.name AS event_name,
+		 sport.name AS sport_name,
+		 date_time,
+		 event.name AS event_name,
+		 team.name AS team_home_name,
+		 team_away.name AS team_away_name
+		 FROM event 
+		 	JOIN sport 
+			 ON event.sport_id = sport.id 
+			JOIN team 
+				ON event.team_home_id = team.id
+			JOIN team AS team_away
+				ON event.team_away_id = team_away.id
+		`);
+	
 
 		return rows;
 	}
 	
 	async createEvent({teamHomeId, teamAwayId, sportId, name, dateTime}) {
-		console.log({teamHomeId, teamAwayId, sportId, name, dateTime})
 		const connection = await this.getConnection();
 
 		await connection.query('INSERT INTO event (id, team_home_id, team_away_id, sport_id, name, date_time) VALUES (?, ?, ?, ?, ?, ?)', [null, teamHomeId, teamAwayId, sportId, name, dateTime]);
