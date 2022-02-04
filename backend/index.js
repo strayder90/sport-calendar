@@ -47,6 +47,25 @@ app.post('/teams', async (req, res) => {
 	}
 });
 
+app.get('/events', async (_, res) => {
+	try {
+    const events = await database.getEvents();
+		res.status(200).json({ status_code: 200, status_message: 'Success!', data: events });
+  } catch (error) {
+    console.error(`Error while getting events: ${error.message}`);
+  }
+});
+
+app.post('/events', async (req, res) => {
+	try {
+		const event = req.body;
+		await database.createEvent(event);
+		res.status(200).json({ status_code: 200, status_message: 'Success!'});
+	} catch (error) {
+		console.error(`Could not create the event: ${error.message}`);
+	}
+});
+
 app.listen(5500, err => {
 	if (err) throw err;
 	console.log('Server is running...');

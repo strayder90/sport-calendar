@@ -26,6 +26,12 @@ export class Database {
 
 		return rows;
 	}
+	
+	async createSport(sport) {
+		const connection = await this.getConnection();
+
+		await connection.query('INSERT INTO sport (id, name) VALUES (?, ?)', [null, sport]);
+	}
 
 	async getTeams() {
 		const connection = await this.getConnection();
@@ -35,21 +41,27 @@ export class Database {
 		return rows;
 	}
 
-	getEvent() {}
-
-	getEventBySport() {}
-
-	async createSport(sport) {
-		const connection = await this.getConnection();
-
-		await connection.query('INSERT INTO sport (id, name) VALUES (?, ?)', [null, sport]);
-	}
-
 	async createTeam(team) {
 		const connection = await this.getConnection();
 
 		await connection.query('INSERT INTO team (id, name, country, acronym) VALUES (?, ?, ?, ?)', [null, team.name, team.country, team.acronym]);
 	}
 
-	createEvent() {}
+	async getEvents() {
+		const connection = await this.getConnection();
+
+		const [rows] = await connection.query('SELECT * FROM event');
+
+		return rows;
+	}
+	
+	async createEvent({teamHomeId, teamAwayId, sportId, name, dateTime}) {
+		console.log({teamHomeId, teamAwayId, sportId, name, dateTime})
+		const connection = await this.getConnection();
+
+		await connection.query('INSERT INTO event (id, team_home_id, team_away_id, sport_id, name, date_time) VALUES (?, ?, ?, ?, ?, ?)', [null, teamHomeId, teamAwayId, sportId, name, dateTime]);
+	}
+
+	getEventBySport() {}
+
 }
