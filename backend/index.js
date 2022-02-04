@@ -1,17 +1,21 @@
 import express from 'express';
 import  { connection } from './Database.js';
 import cors from 'cors';
+import { Database } from './Database.js';
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/sports', (req, res) => {
-	connection.connect(() => {
-		connection.query('SELECT * FROM sport', (err, rows) => {
-			res.status(200).json({ status_code: 200, status_message: 'Success!', data: rows });
-		});
-	});
+const database = new Database();
+
+app.get('/sports', async (_, res) => {
+	try {
+    const sports = await database.getSports();
+		res.status(200).json({ status_code: 200, status_message: 'Success!', data: sports });
+  } catch (error) {
+    console.error(`Error while getting sports: ${error.message}`);
+  }
 });
 
 app.post('/sports', (req) => {
@@ -22,12 +26,13 @@ app.post('/sports', (req) => {
 	});
 });
 
-app.get('/teams', (res) => {
-	connection.connect(() => {
-		connection.query('SELECT * FROM team', (err, rows) => {
-			res.status(200).json({ status_code: 200, status_message: 'Success!', data: rows });
-		});
-	});
+app.get('/teams', async (_, res) => {
+	try {
+    const teams = await database.getTeams();
+		res.status(200).json({ status_code: 200, status_message: 'Success!', data: teams });
+  } catch (error) {
+    console.error(`Error while getting teams: ${error.message}`);
+  }
 });
 
 app.post('/teams', (req, res) => {
