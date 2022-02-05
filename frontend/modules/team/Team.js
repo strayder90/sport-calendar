@@ -1,5 +1,5 @@
-import { TeamService } from './services/TeamService';
-import { UiService } from './services/UiService';
+import { TeamService } from '../../services/TeamService';
+import { UiService } from '../../services/UiService';
 
 const teamName = document.querySelector('#teamName');
 const teamCountry = document.querySelector('#country');

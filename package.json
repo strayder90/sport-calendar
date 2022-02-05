@@ -6,7 +6,7 @@
 	"type": "module",
 	"scripts": {
 		"test": "jest",
-		"frontend": "parcel nodemon ./frontend/index.html",
+		"frontend": "parcel nodemon ./frontend/modules/event/index.html",
 		"backend": "nodemon ./backend/index.js"
 	},
 	"repository": {

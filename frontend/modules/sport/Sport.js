@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime'
-import { SportService } from './services/SportService';
-import { UiService } from './services/UiService';
+import { SportService } from '../../services/SportService';
+import { UiService } from '../../services/UiService';
 
 const sportInput = document.querySelector('#sportName');
 const saveValueBtn = document.querySelector('#saveSport');

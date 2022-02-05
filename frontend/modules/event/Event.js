@@ -1,7 +1,7 @@
-import { EventService } from './services/EventService';
-import { SportService } from './services/SportService';
-import { TeamService } from './services/TeamService';
-import { UiService } from './services/UiService';
+import { EventService } from '../../services/EventService';
+import { SportService } from '../../services/SportService';
+import { TeamService } from '../../services/TeamService';
+import { UiService } from '../../services/UiService';
 
 const searchBtn = document.querySelector('#searchBtn');
 const createEvent = document.querySelector('#createEvent');
