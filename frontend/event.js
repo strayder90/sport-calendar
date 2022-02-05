@@ -1,21 +1,23 @@
-import axios from 'axios';
+import { EventService } from './services/EventService';
+import { SportService } from './services/SportService';
+import { UiService } from './services/UiService';
 
 const searchBtn = document.querySelector('#searchBtn');
 
-axios.get('http://localhost:5500/events').then(response => {
-  const events = response.data.data;
-  
-  let listMarkup = '';
-  for (let i = 0; i < events.length; i++) {
-    listMarkup += '<tr><td>' + events[i].event_id + '</td><td>' + events[i].event_name + '</td><td>' + events[i].sport_name + '</td><td>' + events[i].team_home_name + '</td><td>' + events[i].team_away_name + '</td><td>' + events[i].date_time + '</td></tr>';
-  }
-  
-  const eventList = document.getElementById('eventList');
-  const tableHeaders = '<tr><th>ID</th><th>Name</th><th>SPORT CATEGORY</th><th>TEAM HOME</th><th>TEAM AWAY</th><th>DATE AND TIME</th></tr>'
-  eventList.innerHTML = tableHeaders + listMarkup;
-});
+const eventService = new EventService('http://localhost:5500/', 'events');
+const sportService = new SportService('http://localhost:5500/', 'sports');
+const uiService = new UiService();
 
-axios.get('http://localhost:5500/sports').then(response => {
+eventService.getEvents().then(eventsData => {
+  const events = eventsData.data.data;
+  
+  const htmlTable = uiService.createHtmlEventTable(events);
+
+  const eventList = document.getElementById('eventList');
+  eventList.innerHTML = htmlTable;
+})
+
+sportService.getSports().then(response => {
   const sports = response.data.data;
   
   let listMarkup = '';
@@ -27,20 +29,14 @@ axios.get('http://localhost:5500/sports').then(response => {
   sportList.innerHTML =  listMarkup;
 });
 
-const searchEventBySportCategory = () => {
+searchBtn.addEventListener('click', () => {
   const sportId = document.querySelector('#searchedSport');
-  axios.get(`http://localhost:5500/events/${sportId.value}`).then(response => {
-    const events = response.data.data;
+  eventService.getEventsBySport(sportId.value).then(eventsData => {
+    const events = eventsData.data.data;
 
-    let listMarkup = '';
-    for (let i = 0; i < events.length; i++) {
-      listMarkup += '<tr><td>' + events[i].event_id + '</td><td>' + events[i].event_name + '</td><td>' + events[i].sport_name + '</td><td>' + events[i].team_home_name + '</td><td>' + events[i].team_away_name + '</td><td>' + events[i].date_time + '</td></tr>';
-    }
+    const htmlTable = uiService.createHtmlEventTable(events);
     
     const eventList = document.getElementById('eventList');
-    const tableHeaders = '<tr><th>ID</th><th>Name</th><th>SPORT CATEGORY</th><th>TEAM HOME</th><th>TEAM AWAY</th><th>DATE AND TIME</th></tr>'
-    eventList.innerHTML = tableHeaders + listMarkup;
-  });
-}
-
-searchBtn.addEventListener('click', searchEventBySportCategory);
+    eventList.innerHTML = htmlTable;
+  })
+});
