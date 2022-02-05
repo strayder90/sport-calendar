@@ -18,6 +18,16 @@ form select {
 	margin: 10px;
 }
 
+#searchForm {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+#searchForm div {
+	width: 20em;
+}
+
 #tableSport {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -77,7 +87,7 @@ form select {
 }
 
 #footer {
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	width: 100%;
 }

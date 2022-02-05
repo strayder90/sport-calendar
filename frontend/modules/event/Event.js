@@ -4,7 +4,7 @@ import { TeamService } from '../../services/TeamService';
 import { UiService } from '../../services/UiService';
 
 const searchBtn = document.querySelector('#searchBtn');
-const createEvent = document.querySelector('#createEvent');
+const createEventBtn = document.querySelector('#createEvent');
 
 const searchedSport = document.getElementById('searchedSport');
 
@@ -53,7 +53,8 @@ teamService.getTeams().then(response => {
   eventTeamAway.innerHTML =  listMarkup;
 });
 
-searchBtn.addEventListener('click', () => {
+searchBtn.addEventListener('click', (e) => {
+  e.preventDefault()
   const sportId = document.querySelector('#searchedSport');
   eventService.getEventsBySport(sportId.value).then(eventsData => {
     const events = eventsData.data.data;
@@ -66,7 +67,7 @@ searchBtn.addEventListener('click', () => {
   })
 });
 
-createEvent.addEventListener('click', async () => {
+createEventBtn.addEventListener('click', async () => {
   const event = {
     name: eventName.value,
     sportId: eventSport.value,

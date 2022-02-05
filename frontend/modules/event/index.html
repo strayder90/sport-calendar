@@ -45,16 +45,10 @@
             <div class="mb-3">
               <form class='form-control'>
                 <input id="eventName" type="text" class="form-control mb-2" placeholder="Event name">
-                <select id='sportId' class="form-select">
-
-                </select>
-                <select id='teamHomeId' class="form-select">
-
-                </select>
-                <select id='teamAwayId' class="form-select">
-
-                </select>
-                <input id="dateTime" type="text" class="form-control mb-2" placeholder="year/month/day/time">
+                <select id='sportId' class="form-select"></select>
+                <select id='teamHomeId' class="form-select"></select>
+                <select id='teamAwayId' class="form-select"></select>
+                <input id="dateTime" type="text" class="form-control mb-2" placeholder="time day-month-year">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button id="createEvent" type="submit" data-bs-dismiss="modal" class="btn btn-primary">Save</button>
               </form>
@@ -64,10 +58,14 @@
       </div>
     </div>
   </div>
-  <select id="searchedSport" class="form-select" aria-label="Default select example" style="width: 200px;">
 
-  </select>
-  <button id="searchBtn" class='btn btn-primary'>Search</button>
+  <form id='searchForm'>
+    <div>
+      <select id="searchedSport" class="form-select"></select>
+      <button id="searchBtn" class='btn btn-outline-dark'>Search</button>
+    </div>
+  </form>
+
   <div id="eventTeams" class="shadow-lg p-5 mb-5 bg-white rounded">
     <table id="eventList" class="table table-hover border-dark table-bordered"></table>
   </div>

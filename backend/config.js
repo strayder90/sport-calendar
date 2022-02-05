@@ -164,7 +164,7 @@ const dropTable = () => {
       throw error;
     }
 		connection.query(
-			'DROP TABLE sport',
+			'DROP TABLE team',
 			error => {
 				if (error) {
           throw error;
@@ -177,10 +177,10 @@ const dropTable = () => {
 
 console.log('Initializing database...')
 //createDatabase();
-//createSportTable();
+// createSportTable();
 //insertIntoSportTable();
-//createTeamTable();
+// createTeamTable();
 //insertIntoTeamTable();
-//createEventTable();
+// createEventTable();
 //insertIntoEventTable();
-//dropTable()
+// dropTable()
