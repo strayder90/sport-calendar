@@ -15,4 +15,8 @@ export class EventService {
   async getEventsBySport(id) {
     return await axios.get(`http://localhost:5500/events/${id}`);
   }
+
+  async createEvent(event) {
+    await axios.post('http://localhost:5500/events', event);
+  }
 }
