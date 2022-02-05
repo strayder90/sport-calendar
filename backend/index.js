@@ -58,7 +58,7 @@ app.get('/events', async (_, res) => {
 app.get('/events/:id', async (req, res) => {
 	try {
 		const sportId = req.params.id;
-    const eventsBySportId = await database.getEventsById(sportId);
+    const eventsBySportId = await database.getEventsBySportId(sportId);
 		res.status(200).json({ status_code: 200, status_message: 'Success!', data: eventsBySportId });
   } catch (error) {
     console.error(`Error while getting events by sport id: ${error.message}`);
@@ -75,7 +75,7 @@ app.post('/events', async (req, res) => {
 	}
 });
 
-app.delete('/events/:id', () => {
+app.delete('/events/:id', async () => {
 	try {
 		const sportId = req.params.id;
     await database.deleteEventById(sportId);

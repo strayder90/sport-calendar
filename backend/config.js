@@ -1,6 +1,6 @@
 import mysql from 'mysql2';
 
-export const connection = mysql.createConnection({
+const connection = mysql.createConnection({
 	host: 'localhost',
 	user: 'root',
 	password: 'test',
@@ -164,7 +164,7 @@ const dropTable = () => {
       throw error;
     }
 		connection.query(
-			'DROP TABLE team',
+			'DROP TABLE sport',
 			error => {
 				if (error) {
           throw error;

@@ -71,7 +71,7 @@ export class Database {
 		return rows;
 	}
 
-	async getEventsById(id) {
+	async getEventsBySportId(id) {
 		const connection = await this.getConnection();
 
 		const [rows] = await connection.query(`
@@ -104,8 +104,4 @@ export class Database {
 	
 		return rows;
 	}
-
-
-	getEventBySport() {}
-
 }

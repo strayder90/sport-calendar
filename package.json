@@ -4,9 +4,6 @@
 	"description": "",
 	"main": "index.js",
 	"type": "module",
-	"jest": {
-		"verbose": true
-	},
 	"scripts": {
 		"test": "jest",
 		"frontend": "parcel nodemon ./frontend/index.html",
@@ -30,10 +27,7 @@
 	},
 	"devDependencies": {
 		"@babel/core": "^7.17.0",
-		"@babel/preset-env": "^7.16.11",
-		"babel-jest": "^27.5.0",
 		"jest": "^27.5.0",
-		"parcel": "^2.2.1",
 		"parcel-bundler": "^1.12.5"
 	}
 }
