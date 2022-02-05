@@ -25,7 +25,6 @@ export class UiService {
       listMarkup += '<tr><td>' + teams[i].id + '</td><td>' + teams[i].name + '</td><td>' + teams[i].country + '</td><td>' + teams[i].acronym + '</td></tr>';
     };
     
-    const teamList = document.getElementById("teamList");
     const tableHeaders = '<tr><th>ID</th><th>Team</th><th>Country</th><th>Acronym</th></tr>';
     return tableHeaders + listMarkup;
   }
