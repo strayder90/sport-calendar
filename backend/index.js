@@ -1,5 +1,4 @@
 import express from 'express';
-import  { connection } from './Database.js';
 import cors from 'cors';
 import { Database } from './Database.js';
 
@@ -43,7 +42,7 @@ app.post('/teams', async (req, res) => {
 		await database.createTeam(team);
 		res.status(200).json({ status_code: 200, status_message: 'Success!'});
 	} catch (error) {
-		console.error(`Could not create the sport: ${error.message}`);
+		console.error(`Could not create the team: ${error.message}`);
 	}
 });
 
@@ -53,6 +52,16 @@ app.get('/events', async (_, res) => {
 		res.status(200).json({ status_code: 200, status_message: 'Success!', data: events });
   } catch (error) {
     console.error(`Error while getting events: ${error.message}`);
+  }
+});
+
+app.get('/events/:id', async (req, res) => {
+	try {
+		const sportId = req.params.id;
+    const eventsBySportId = await database.getEventsById(sportId);
+		res.status(200).json({ status_code: 200, status_message: 'Success!', data: eventsBySportId });
+  } catch (error) {
+    console.error(`Error while getting events by sport id: ${error.message}`);
   }
 });
 

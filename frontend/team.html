@@ -33,7 +33,7 @@
   </nav>
 
   <div id="addInputButton">
-    <!-- Button trigger modal -->
+    <!-- Modal trigger -->
     <button id="addTeamBtn" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modal">
       Add Team
     </button>
@@ -48,6 +48,11 @@
           <div class="modal-body">
             <div class="mb-3">
               <form class='form-control'>
+                <select id='teamSelect' class="form-select">
+                  <option selected>Select team</option>
+                  <option value="1">Team Home</option>
+                  <option value="2">Team Away</option>
+                </select>
                 <input id="teamName" type="text" class="form-control mb-2" placeholder="Team name">
                 <input id="country" type="text" class="form-control" placeholder="Country">
                 <input id="teamAcronym" type="text" class="form-control" placeholder="Team acronym">
@@ -75,7 +80,6 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
   <script src="./team.js"></script>
-
 </body>
 
 </html>

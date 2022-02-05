@@ -28,6 +28,55 @@
     </div>
   </nav>
 
+  <div id="addInputButton">
+    <!-- Modal trigger -->
+    <button id="addTeamBtn" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#modal">
+      Add Event
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <form class='form-control'>
+                <input id="eventName" type="text" class="form-control mb-2" placeholder="Event name">
+                <select id='sportId' class="form-select">
+                  <option selected>Select sport</option>
+                  <option value="1">Football</option>
+                  <option value="2">Tennis</option>
+                  <option value="3">Rugby</option>
+                </select>
+                <select id='teamHomeId' class="form-select">
+                  <option selected>Select team home</option>
+                  <option value="1">Real Madrid</option>
+                  <option value="2">Arsenal</option>
+                  <option value="3">Barcelona</option>
+                </select>
+                <select id='teamAwayId' class="form-select">
+                  <option selected>Select team away</option>
+                  <option value="1">Real Madrid</option>
+                  <option value="2">Arsenal</option>
+                  <option value="3">Barcelona</option>
+                </select>
+                <input id="dateInp" type="text" class="form-control mb-2" placeholder="year/month/day/time">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button id="saveValues" type="submit" data-bs-dismiss="modal" class="btn btn-primary">Save</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <select id="searchedSport" class="form-select" aria-label="Default select example" style="width: 200px;">
+
+  </select>
+  <button id="searchBtn" class='btn btn-primary'>Search</button>
   <div id="eventTeams" class="shadow-lg p-5 mb-5 bg-white rounded">
     <table id="eventList" class="table table-hover border-dark table-bordered"></table>
   </div>
@@ -42,7 +91,6 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
   </script>
   <script src="./event.js"></script>
-
 </body>
 
 </html>

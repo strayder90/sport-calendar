@@ -10,6 +10,14 @@ table {
 	table-layout: fixed;
 }
 
+form input {
+	margin: 10px;
+}
+
+form select {
+	margin: 10px;
+}
+
 #tableSport {
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -25,6 +33,14 @@ table {
   max-width: 50rem;
 }
 
+#eventTeams {
+	border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 60rem;
+}
+
 #sportList {
 	margin: 10px auto;
 	justify-content: center;
@@ -37,6 +53,13 @@ table {
 	justify-content: center;
 	text-align: center;
 	width: 700px;
+}
+
+#eventList {
+	margin: 10px auto;
+	justify-content: center;
+	text-align: center;
+	width: 800px;
 }
 
 #addSportBtn {

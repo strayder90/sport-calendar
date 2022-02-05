@@ -18,7 +18,7 @@ axios.get('http://localhost:5500/teams').then(response => {
   teamList.innerHTML = tableHeaders + listMarkup;
 });
 
-const createTeam = (name, country, acronym) => {
+const createTeam = () => {
   axios.post('http://localhost:5500/teams', {
       name: teamName.value, 
       country: teamCountry.value,
