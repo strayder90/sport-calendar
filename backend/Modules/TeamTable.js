@@ -43,13 +43,13 @@ export class TeamTable {
     });
   }
   
-   deleteTeamTableData = () => {
+  dropTableTeam = () => {
     connection.connect(error => {
       if (error) {
         throw error;
       }
       connection.query(
-        'TRUNCATE team',
+        'DROP TABLE team',
         error => {
           if (error) {
             throw error;

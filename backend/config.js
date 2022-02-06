@@ -5,17 +5,17 @@ import { EventTable } from './Modules/EventTable.js';
 const sport = new SportTable();
 const createSportTable = sport.createSportTable;
 const insertIntoSportTable = sport.insertIntoSportTable;
-const deleteSportTableData = sport.deleteSportTableData;
+const dropTableSport = sport.dropTableSport;
 
 const team = new TeamTable();
 const createTeamTable = team.createTeamTable;
 const insertIntoTeamTable = team.insertIntoTeamTable;
-const deleteTeamTableData = team.deleteTeamTableData;
+const dropTableTeam = team.dropTableTeam;
 
 const event = new EventTable();
 const createEventTable = event.createEventTable;
 const insertIntoEventTable = event.insertIntoEventTable;
-const dropEventTable = event.dropEventTable;
+const dropTableEvent = event.dropTableEvent;
 
 console.log('Initializing database...');
 //createDatabase();
@@ -25,4 +25,3 @@ console.log('Initializing database...');
 //insertIntoTeamTable();
 // createEventTable();
 //insertIntoEventTable();
-// dropEventTable();

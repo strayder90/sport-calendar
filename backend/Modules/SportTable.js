@@ -43,13 +43,13 @@ export class SportTable {
     });
   }
   
-   deleteSportTableData = () => {
+   dropTableSport = () => {
     connection.connect(error => {
       if (error) {
         throw error;
       }
       connection.query(
-        'TRUNCATE sport',
+        'DROP TABLE sport',
         error => {
           if (error) {
             throw error;

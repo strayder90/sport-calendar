@@ -43,7 +43,7 @@ export class EventTable {
     });
   }
   
-   dropEventTable = () => {
+  dropTableEvent = () => {
     connection.connect(error => {
       if (error) {
         throw error;
