@@ -1,4 +1,5 @@
 export class UiService {
+  
   createHtmlEventTable(events) {
     let listMarkup = '';
     for (let i = 0; i < events.length; i++) {
@@ -15,7 +16,7 @@ export class UiService {
       listMarkup += '<tr><td>' + sports[i].id + '</td><td>' + sports[i].name + '</td></tr>';
     }
     
-    const tableHeaders = '<tr><th>ID</th><th>Name</th></tr>'
+    const tableHeaders = '<tr><th>ID</th><th>Name</th></tr>';
     return tableHeaders + listMarkup;
   }
 
@@ -28,4 +29,4 @@ export class UiService {
     const tableHeaders = '<tr><th>ID</th><th>Team</th><th>Country</th><th>Acronym</th></tr>';
     return tableHeaders + listMarkup;
   }
-}
+};

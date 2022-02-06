@@ -5,6 +5,7 @@ import { UiService } from '../../services/UiService';
 
 const searchBtn = document.querySelector('#searchBtn');
 const createEventBtn = document.querySelector('#createEvent');
+const eventAlert = document.querySelector('#eventAlert');
 
 const searchedSport = document.getElementById('searchedSport');
 
@@ -22,12 +23,18 @@ const uiService = new UiService();
 eventService.getEvents().then(eventsData => {
   const events = eventsData.data.data;
 
+  if(!events.length) {
+    eventAlert.style.display = 'block';
+  } else {
+    eventAlert.style.display = 'none';
+  }
+
   const transformedEvents = transformEvent(events);
   const htmlTable = uiService.createHtmlEventTable(transformedEvents);
 
   const eventList = document.getElementById('eventList');
   eventList.innerHTML = htmlTable;
-})
+});
 
 sportService.getSports().then(response => {
   const sports = response.data.data;
@@ -77,7 +84,7 @@ createEventBtn.addEventListener('click', async () => {
   }
 
   await eventService.createEvent(event)
-})
+});
 
 const transformEvent = (events) => {
   return events.map(event => {
@@ -87,4 +94,4 @@ const transformEvent = (events) => {
       date_time:  `${dateTime.getHours()}:${dateTime.getMinutes()} ${dateTime.getDay()}/${dateTime.getMonth()}/${dateTime.getFullYear()}`
     }
   })
-}
+};

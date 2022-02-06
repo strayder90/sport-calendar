@@ -15,5 +15,4 @@ export class TeamService {
   async createTeam(team) {
     await axios.post('http://localhost:5500/teams', team);
   }
-
-}
+};

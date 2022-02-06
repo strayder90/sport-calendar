@@ -1,7 +1,6 @@
 import mysql from 'mysql2/promise';
 
 export class Database {
-  constructor() {}
 
 	async getConnection() {
 		return await mysql.createConnection({
@@ -95,13 +94,4 @@ export class Database {
 	
 		return rows;
 	}
-
-	async deleteEventById(id) {
-		const connection = await this.getConnection();
-
-		const [rows] = await connection.query(`
-		DELETE FROM event WHERE event.sport_id = ${id}`);
-	
-		return rows;
-	}
-}
+};

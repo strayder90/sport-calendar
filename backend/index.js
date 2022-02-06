@@ -75,16 +75,6 @@ app.post('/events', async (req, res) => {
 	}
 });
 
-app.delete('/events/:id', async () => {
-	try {
-		const sportId = req.params.id;
-    await database.deleteEventById(sportId);
-		res.status(200).json({ status_code: 200, status_message: 'Success!', data: eventsBySportId });
-  } catch (error) {
-    console.error(`Error while getting events by sport id: ${error.message}`);
-  }
-})
-
 app.listen(5500, err => {
 	if (err) throw err;
 	console.log('Server is running...');

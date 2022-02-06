@@ -19,4 +19,4 @@ export class EventService {
   async createEvent(event) {
     await axios.post('http://localhost:5500/events', event);
   }
-}
+};

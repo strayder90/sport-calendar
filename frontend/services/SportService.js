@@ -15,5 +15,4 @@ export class SportService {
   async createSport(name) {
     await axios.post('http://localhost:5500/sports', { name });
   }
-
-}
+};

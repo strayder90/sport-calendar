@@ -14,4 +14,4 @@ describe('UiService', () => {
     const actualHtmlTable = '<tr><th>ID</th><th>Name</th></tr><tr><td>1</td><td>test</td></tr>';
     expect(actualHtmlTable).toEqual(expectedHtmlTable);
   })
-})
+});

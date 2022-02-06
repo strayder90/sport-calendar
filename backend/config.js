@@ -16,7 +16,7 @@ const createDatabase = () => {
         if (error) {
           throw error;
         }
-        console.log('Database created');
+        console.log('Database created!');
       });
     }
 	});
@@ -33,7 +33,7 @@ const createSportTable = () => {
 				if (error) {
           throw error;
         }
-				console.log('Table sport created!');
+				console.log('Sport table created!');
 			}
 		);
 	});
@@ -84,7 +84,7 @@ const createTeamTable = () => {
 				if (error) {
           throw error;
         }
-				console.log('Table team created!');
+				console.log('Team table created!');
 			}
 		);
 	});
@@ -118,7 +118,7 @@ const deleteTeamTableData = () => {
 				if (error) {
           throw error;
         }
-				console.log('Deleted team table.');
+				console.log('Deleted from team table.');
 			}
 		);
 	});
@@ -135,7 +135,7 @@ const createEventTable = () => {
 				if (error) {
           throw error;
         }
-				console.log('Table team created!');
+				console.log('Event table created!');
 			}
 		);
 	});
@@ -164,7 +164,7 @@ const dropTable = () => {
       throw error;
     }
 		connection.query(
-			'DROP TABLE team',
+			'DROP TABLE event',
 			error => {
 				if (error) {
           throw error;
@@ -183,4 +183,4 @@ console.log('Initializing database...')
 //insertIntoTeamTable();
 // createEventTable();
 //insertIntoEventTable();
-// dropTable()
+// dropTable();
