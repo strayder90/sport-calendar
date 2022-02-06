@@ -89,9 +89,11 @@ createEventBtn.addEventListener('click', async () => {
 const transformEvent = (events) => {
   return events.map(event => {
     const dateTime = new Date(event.date_time);
+    const hours = `${dateTime.getHours()}:${dateTime.getMinutes()}`;
+    const date = `${dateTime.getDay()}/${dateTime.getMonth()}/${dateTime.getFullYear()}`;
     return {
       ...event,
-      date_time:  `${dateTime.getHours()}:${dateTime.getMinutes()} ${dateTime.getDay()}/${dateTime.getMonth()}/${dateTime.getFullYear()}`
+      date_time:  `${hours} - ${date}`
     }
   })
 };
