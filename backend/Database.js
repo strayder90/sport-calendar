@@ -9,7 +9,7 @@ export class Database {
 			password: 'test',
 			database: 'sport_calendar',
 		});
-	}
+	};
 
 	async createSport(sport) {
 		const connection = await this.getConnection();
