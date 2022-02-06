@@ -18,10 +18,11 @@ const insertIntoEventTable = event.insertIntoEventTable;
 const dropTableEvent = event.dropTableEvent;
 
 console.log('Initializing database...');
-//createDatabase();
-// createSportTable();
-//insertIntoSportTable();
-// createTeamTable();
-//insertIntoTeamTable();
-// createEventTable();
-//insertIntoEventTable();
+
+createDatabase();
+createSportTable();
+insertIntoSportTable();
+createTeamTable();
+insertIntoTeamTable();
+createEventTable();
+insertIntoEventTable();
