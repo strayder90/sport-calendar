@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
 
 export class TeamTable {
 
-   createTeamTable = () => {
+   createTable = () => {
     connection.connect(error => {
       if (error) {
         throw error;
@@ -26,7 +26,7 @@ export class TeamTable {
     });
   };
   
-   insertIntoTeamTable = () => {
+   insertIntoTable = () => {
     connection.connect(error => {
       if (error) {
         throw error;

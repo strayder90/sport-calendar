@@ -9,7 +9,7 @@ const connection = mysql.createConnection({
 
 export class EventTable {
 
-   createEventTable = () => {
+   createTable = () => {
     connection.connect(error => {
       if (error) {
         throw error;
@@ -26,13 +26,13 @@ export class EventTable {
     });
   };
   
-   insertIntoEventTable = () => {
+   insertIntoTable = () => {
     connection.connect(error => {
       if (error) {
         throw error;
       }
       connection.query(
-        'INSERT INTO event (id, name, sport_id, team_home_id, team_away_id, date_time) VALUES (?, ?, ?, ?, ?, ?)', [null, 'Premiere Leauge', 3, 2, 3, '2022-02-04 11:23:54'],
+        'INSERT INTO event (id, name, sport_id, team_home_id, team_away_id, date_time) VALUES (?, ?, ?, ?, ?, ?)', [null, 'Premiere Leauge', 1, 1, 1, '2022-02-04 11:23:54'],
         error => {
           if (error) {
             throw error;
