@@ -3,6 +3,7 @@
 RUN APPLICATION:
 
 Create database and tables.
+node createDatabase.js
 node config.js
 
 npm run backend
