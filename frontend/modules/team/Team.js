@@ -1,5 +1,5 @@
 import { TeamService } from '../../services/TeamService';
-import { UiService } from '../../services/UiService';
+import { UiBuilder } from '../../services/uiBuilder';
 
 const teamName = document.querySelector('#teamName');
 const teamCountry = document.querySelector('#country');
@@ -7,9 +7,8 @@ const teamAcronym = document.querySelector('#teamAcronym');
 const saveValuesBtn = document.querySelector('#saveValues');
 const teamAlert = document.querySelector('#teamAlert');
 
-
 const teamService = new TeamService('http://localhost:5500/', 'teams');
-const uiService = new UiService();
+const uiBuilder = new UiBuilder();
 
 teamService.getTeams().then(teamsData => {
   const teams = teamsData.data.data;
@@ -20,7 +19,7 @@ teamService.getTeams().then(teamsData => {
     teamAlert.style.display = 'none';
   }
   
-  const htmlTable = uiService.createHtmlTeamTable(teams);
+  const htmlTable = uiBuilder.createHtmlTeamTable(teams);
   
   const teamList = document.getElementById("teamList");
   teamList.innerHTML = htmlTable;

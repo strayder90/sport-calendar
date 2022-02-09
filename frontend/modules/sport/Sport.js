@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime'
 import { SportService } from '../../services/SportService';
-import { UiService } from '../../services/UiService';
+import { UiBuilder } from '../../services/uiBuilder';
 
 const sportInput = document.querySelector('#sportName');
 const saveValueBtn = document.querySelector('#saveSport');
@@ -8,7 +8,7 @@ const sportAlert = document.querySelector('#sportAlert');
 
 
 const sportService = new SportService('http://localhost:5500/', 'sports');
-const uiService = new UiService();
+const uiBuilder = new UiBuilder();
 
 sportService.getSports().then(sportData => {
     const sports = sportData.data.data;
@@ -19,7 +19,7 @@ sportService.getSports().then(sportData => {
       sportAlert.style.display = 'none';
     }
     
-    const htmlTable = uiService.createHtmlSportTable(sports);
+    const htmlTable = uiBuilder.createHtmlSportTable(sports);
     
     const sportList = document.getElementById('sportList');
     sportList.innerHTML = htmlTable;

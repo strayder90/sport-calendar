@@ -1,20 +1,14 @@
-import mysql from 'mysql2';
-
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'test',
-  database: 'sport_calendar',
-});
-
 export class TeamTable {
+  constructor(connection) {
+    this.connection = connection;
+  }
 
    createTable = () => {
-    connection.connect(error => {
+    this.connection.connect(error => {
       if (error) {
         throw error;
       }
-      connection.query(
+      this.connection.query(
         'CREATE TABLE `team` (`id` INT NOT NULL AUTO_INCREMENT, `name` VARCHAR(45) NULL, `country` VARCHAR(45) NULL, `acronym` VARCHAR(45) NULL, PRIMARY KEY (`id`));',
         error => {
           if (error) {
@@ -27,11 +21,11 @@ export class TeamTable {
   };
   
    insertIntoTable = () => {
-    connection.connect(error => {
+    this.connection.connect(error => {
       if (error) {
         throw error;
       }
-      connection.query(
+      this.connection.query(
         'INSERT INTO team (id, name, country, acronym) VALUES (?, ?, ?, ?)', [null, 'Real Madrid', 'Spain', 'RMD'],
         error => {
           if (error) {
@@ -44,11 +38,11 @@ export class TeamTable {
   }
   
   dropTableTeam = () => {
-    connection.connect(error => {
+    this.connection.connect(error => {
       if (error) {
         throw error;
       }
-      connection.query(
+      this.connection.query(
         'DROP TABLE team',
         error => {
           if (error) {

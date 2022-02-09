@@ -1,7 +1,7 @@
 import { EventService } from '../../services/EventService';
 import { SportService } from '../../services/SportService';
 import { TeamService } from '../../services/TeamService';
-import { UiService } from '../../services/UiService';
+import { UiBuilder } from '../../services/UiBuilder';
 
 const searchBtn = document.querySelector('#searchBtn');
 const createEventBtn = document.querySelector('#createEvent');
@@ -18,7 +18,7 @@ const eventDateTime = document.querySelector('#dateTime');
 const eventService = new EventService('http://localhost:5500/', 'events');
 const sportService = new SportService('http://localhost:5500/', 'sports');
 const teamService = new TeamService('http://localhost:5500/', 'teams');
-const uiService = new UiService();
+const uiBuilder = new UiBuilder();
 
 eventService.getEvents().then(eventsData => {
   const events = eventsData.data.data;
@@ -30,7 +30,7 @@ eventService.getEvents().then(eventsData => {
   }
 
   const transformedEvents = transformEvent(events);
-  const htmlTable = uiService.createHtmlEventTable(transformedEvents);
+  const htmlTable = uiBuilder.createHtmlEventTable(transformedEvents);
 
   const eventList = document.getElementById('eventList');
   eventList.innerHTML = htmlTable;
@@ -67,7 +67,7 @@ searchBtn.addEventListener('click', (e) => {
     const events = eventsData.data.data;
 
     const transformedEvents = transformEvent(events);
-    const htmlTable = uiService.createHtmlEventTable(transformedEvents);
+    const htmlTable = uiBuilder.createHtmlEventTable(transformedEvents);
     
     const eventList = document.getElementById('eventList');
     eventList.innerHTML = htmlTable;

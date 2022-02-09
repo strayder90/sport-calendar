@@ -1,4 +1,4 @@
-export class UiService {
+export class UiBuilder {
   
   createHtmlEventTable(events) {
     let listMarkup = '';
