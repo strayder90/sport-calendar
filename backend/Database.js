@@ -13,7 +13,7 @@ export class Database {
 	async createSport(sport) {
 		const connection = await this.getConnection();
 
-		await connection.query('INSERT INTO sport (id, name) VALUES (?, ?)', [null, sport]);
+		await connection.query('INSERT INTO sport (name) VALUES (?)', [sport]);
 	}
 
 	async getSports() {
