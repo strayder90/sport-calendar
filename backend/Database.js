@@ -27,7 +27,8 @@ export class Database {
 	async createTeam(team) {
 		const connection = await this.getConnection();
 
-		await connection.query('INSERT INTO team (id, name, country, acronym) VALUES (?, ?, ?, ?)', [null, team.name, team.country, team.acronym]);
+		await connection.query('INSERT INTO team (id, name, country, acronym) VALUES (?, ?, ?, ?)',
+		[null, team.name, team.country, team.acronym]);
 	}
 	
 	async getTeams() {
@@ -41,7 +42,8 @@ export class Database {
 	async createEvent({name, sportId, teamHomeId, teamAwayId, dateTime}) {
 		const connection = await this.getConnection();
 
-		await connection.query('INSERT INTO event (id, name, sport_id, team_home_id, team_away_id, date_time) VALUES (?, ?, ?, ?, ?, ?)', [null, name, sportId, teamHomeId, teamAwayId, dateTime]);
+		await connection.query('INSERT INTO event (id, name, sport_id, team_home_id, team_away_id, date_time) VALUES (?, ?, ?, ?, ?, ?)',
+		[null, name, sportId, teamHomeId, teamAwayId, dateTime]);
 	}
 
 	async getEvents() {
@@ -53,7 +55,6 @@ export class Database {
 			event.name AS event_name,
 		 	sport.name AS sport_name,
 		 	date_time,
-		 	event.name AS event_name,
 		 	team.name AS team_home_name,
 		 	team_away.name AS team_away_name
 		 	FROM event 

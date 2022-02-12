@@ -26,7 +26,8 @@ export class EventTable {
         throw error;
       }
       this.connection.query(
-        'INSERT INTO event (id, name, sport_id, team_home_id, team_away_id, date_time) VALUES (?, ?, ?, ?, ?, ?)', [null, 'Premiere Leauge', 1, 1, 1, '2022-02-04 11:23:54'],
+        'INSERT INTO event (id, name, sport_id, team_home_id, team_away_id, date_time) VALUES (?, ?, ?, ?, ?, ?)',
+         [null, 'Premiere Leauge', 1, 1, 1, '2022-02-04 11:23:54'],
         error => {
           if (error) {
             throw error;
